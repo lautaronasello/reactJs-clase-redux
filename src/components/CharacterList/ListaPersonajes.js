@@ -48,17 +48,3 @@ const ListaPersonajes = () => {
 };
 
 export default ListaPersonajes;
-
-
-
-/*
-useEffect(() => {
-axios('https://breakingbadapi.com/api/characters').then((res) =>
-			setCharacters(res.data)
-		);
-		setTimeout(() => {
-			setIsLoading(false);
-		}, 1000);
-	}, []);
-
-	*/

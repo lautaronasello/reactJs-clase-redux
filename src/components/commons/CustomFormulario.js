@@ -1,6 +1,7 @@
 //formik
 import React, { useState, useEffect } from 'react';
-import { Field, useFormik } from 'formik';
+import PropTypes from 'prop-types';
+import { Field, Form, Formik, useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 
 const CustomFormulario = ({ initialValues, urlFetch, urlNavigate, }) => {
@@ -25,7 +26,9 @@ const CustomFormulario = ({ initialValues, urlFetch, urlNavigate, }) => {
                 .then(data => {
                     console.log(data)
                     setLoading(false);
+                    alert('Formulario enviado correctamente');
                     navigate(urlNavigate);
+                    
                 }
                 )
                 .catch(error => {
@@ -33,7 +36,12 @@ const CustomFormulario = ({ initialValues, urlFetch, urlNavigate, }) => {
                     setLoading(false);
                 }
                 );
+        },
+        setFieldError: (field, message) => {
+            setError(true);
+            setLoading(false);
         }
+        
     });
 
     useEffect(() => {
@@ -50,24 +58,32 @@ const CustomFormulario = ({ initialValues, urlFetch, urlNavigate, }) => {
 
 
     return (
-        <form onSubmit={formik.handleSubmit}>
-            {formulario.map(item => (
-                <div key={item.name}>
-                    <label htmlFor={item.name}>{item.label}</label>
-                    {item.type === 'textarea' ? 
-                    <textarea name="textarea" rows="5" cols="25" onChange={formik.handleChange} value={item.name} />
-                    :
-                    <input type={item.type} name={item.name} id={item.name} onChange={formik.handleChange} />}
-                </div>
-            ))}
-            <button type="submit">{loading ? 'Cargando...' : 'Enviar'}</button>
-            {error && <p>Error al enviar el formulario</p>}
-        </form>
+        <Formik {...formik}>
+            <Form onSubmit={formik.handleSubmit}>
+                {formulario.map(item => (
+                    <div key={item.name}>
+                        <label htmlFor={item.name}>{item.label}</label>
+                        <Field name={item.name} type={item.type} id={item.name} />
+                        
+                    </div>
+                ))}
+                <button type="submit">{loading ? 'Cargando...' : 'Enviar'}</button>
+                {error && <p>Error al enviar el formulario</p>}
+            </Form>
+        </Formik>
     );
     
 
 
 };
 
+CustomFormulario.propTypes = {
+    initialValues: PropTypes.array.isRequired,
+    urlFetch: PropTypes.string.isRequired,
+    urlNavigate: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number
+      ]).isRequired,
+}
 export default CustomFormulario;
 
