@@ -25,6 +25,10 @@ const Nav = () => {
 			<NavLink to="/contact" style={({isActive }) => isActive ? activeStyle : undefined } className="nav-link">
 				Contacto 
 			</NavLink>
+			<NavLink to="/ruta-que-no-existe" style={({isActive }) => isActive ? activeStyle : undefined } className="nav-link">
+				Desconocido 
+			</NavLink>
+
 		</nav>
 	);
 
