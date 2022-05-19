@@ -17,7 +17,7 @@ export default function AuthProvider({children}) {
     const contextValue = {
         user,
         login() {
-            setUser({ id: 1, username: 'nico91' });
+            setUser({ id: 1, username: 'vburman' });
         },
         logout() {
             setUser(null)
