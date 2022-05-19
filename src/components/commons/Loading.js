@@ -18,7 +18,7 @@ export default function Loading() {
 
     return (
         <div className={style.root}>
-            <CircularProgress className={style.spinner} size={'5rem'} thickness={2.5}/>
+            <CircularProgress size={'5rem'} thickness={2.5}/>
         </div>
     )
 }

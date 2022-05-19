@@ -12,9 +12,12 @@ const Home = () => {
 				<p className="home__text">
 					Este es un home de prueba
 				</p>
-				<Button component={Link} to="/personajes" className="home__button">
-					Ver personajes
-				</Button>
+				<Link to="/personajes">
+					<Button className="home__button">
+						Ver personajes
+					</Button>
+				</Link>
+
 			</div>
 		</div>
 	);

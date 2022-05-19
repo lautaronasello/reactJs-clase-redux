@@ -21,7 +21,7 @@ const ListaPersonajes = () => {
 				setLoading(false);
 			});
 	}, []);
-
+//condicion ? true : false
 	return (
 		<>
 			{

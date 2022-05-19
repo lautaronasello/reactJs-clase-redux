@@ -27,7 +27,7 @@ const CustomFormulario = ({ initialValues, urlFetch, urlNavigate, }) => {
                     console.log(data)
                     setLoading(false);
                     alert('Formulario enviado correctamente');
-                    navigate(urlNavigate);
+                    navigate(urlNavigate); // "/"
                     
                 }
                 )

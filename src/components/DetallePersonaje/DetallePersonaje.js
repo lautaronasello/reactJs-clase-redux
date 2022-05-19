@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import './DetallePersonaje.css';
-import CardPersonajesMapeados from '../../components/CharacterCard/CardPersonajesMapeados';
-import Loading from '../../components/commons/Loading';
+import CardPersonajesMapeados from '../CharacterCard/CardPersonajesMapeados';
+import Loading from '../commons/Loading';
 
 const DetallePersonaje = () => {
 	const [character, setCharacter] = useState([]);

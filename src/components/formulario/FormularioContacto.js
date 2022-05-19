@@ -30,7 +30,7 @@ const initialValues = [
 ];
 //url post a jsonplaceholder
 const urlFetch = 'https://jsonplaceholder.typicode.com/posts';
-const urlNavigate = '/';
+const urlNavigate = '/'; 
 
 const FormularioContacto = () => {
     return (
