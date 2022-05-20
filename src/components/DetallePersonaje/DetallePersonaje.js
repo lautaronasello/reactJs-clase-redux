@@ -1,23 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
 import './DetallePersonaje.css';
 import CardPersonajesMapeados from '../CharacterCard/CardPersonajesMapeados';
 import Loading from '../commons/Loading';
+import { Button } from '@mui/material';
+import { Link, Outlet, useParams } from 'react-router-dom';
 
 const DetallePersonaje = () => {
 	const [character, setCharacter] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 
-	// console.log(character);
-
 	const { userID } = useParams();
-	/* es equivalente a 
-	let id = useParams();
 
-	let userID = id.id; 
-	*/
-
-	// console.log(userID);
 
 	useEffect(() => {
 		fetch(`https://breakingbadapi.com/api/characters/${userID}`)
@@ -46,9 +39,12 @@ const DetallePersonaje = () => {
 						return (
 							<div key={char.char_id}>
 								<CardPersonajesMapeados data={char} />
+								<Button component={Link} to='mas-detalles' variant='contained'>Más detalles anidados</Button>
 							</div>
 						);
 					})}
+					
+					
 				</div>
 			}
 		</div>

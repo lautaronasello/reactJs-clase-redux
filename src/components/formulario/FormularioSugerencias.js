@@ -1,5 +1,5 @@
 //formulario de sugerencia con nombre y mensaje de sugerencia
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CustomFormulario from '../commons/CustomFormulario';
 
 //que nos lleve a la página anterior que estabamos navegando 
@@ -19,7 +19,7 @@ const initialValues = [
 ];
 
 const urlFetch = 'https://jsonplaceholder.typicode.com/posts';
-const urlNavigate = -1;
+const urlNavigate = "/login";
 
 const FormularioSugerencias = () => {
     return (

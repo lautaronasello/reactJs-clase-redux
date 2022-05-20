@@ -21,6 +21,7 @@ import DashboardPage from "../views/Dashboard/DashboardPage";
 //RUTAS
 
 import PrivateRoute from "./PrivateRoute";
+import MasDetallePersonaje from "../components/DetallePersonaje/MasDetallePersonaje";
 
 
 function AppRoutes() {
@@ -32,16 +33,17 @@ function AppRoutes() {
 				<Routes> {/* <Switch> */}
 					<Route index element={<Home />} />
 					<Route path='/personajes' element={<ListaPersonajes />} />	
-					<Route path='/personajes/:userID' element={<DetallePersonaje />} />	
+					<Route path='/personajes/:userID' element={<DetallePersonaje />}>
+						<Route path='mas-detalles' element={<MasDetallePersonaje />} />	
+					</Route>	
+
 					<Route path='/about' element={<About />} />
 					<Route path='/contact' element={<Contact />} />
-
-					
 
 					<Route path='/login' element={<LoginPage />} />
                     <Route path='/register' element={<RegisterPage />} />
                     <Route exact path='/dashboard' element={<PrivateRoute/>}>
-                        <Route exact path='/dashboard/' element={<DashboardPage/>}/>
+                        <Route exact path='/dashboard' element={<DashboardPage/>}/>
                     </Route>
                     {/* <PrivateRoute path='/dashboard' element={<DashboardPage />} /> */}
 

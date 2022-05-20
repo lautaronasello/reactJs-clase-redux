@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import useAuth from '../../auth/useAuth';
 
 export default function LoginPage() {
-    const auth = useAuth();
+    const auth = useAuth(); //contextValue  al momento de renderizar (user, isLogged, login, logout)
     const navigate = useNavigate();
     const location = useLocation();
     console.log(location)
