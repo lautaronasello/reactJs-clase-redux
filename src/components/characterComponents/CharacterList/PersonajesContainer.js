@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import './ListaPersonajes.css';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { onFetchCharacters } from '../../redux/actions';
-import Loading from '../commons/Loading';
+import { onFetchCharacters } from '../../../redux/actions';
+import Loading from '../../commons/Loading';
 import PersonajesList from './PersonajesList';
 
 

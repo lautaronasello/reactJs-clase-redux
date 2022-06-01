@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setColor } from '../../redux/actions/color';
 
 const Header = () => {
-	const colorHeader = useSelector(state => state.color && state.color.colorHeader ? state.color.colorHeader : '#075e08');
+	const colorHeader = useSelector(state => state.colorData.colorHeader);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(setColor('#075e08'));
-	}, []);
+	}, [dispatch]);
 
 
 

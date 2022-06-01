@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './DetallePersonaje.css';
-import Loading from '../commons/Loading';
+import Loading from '../../commons/Loading'
 import { Button } from '@mui/material';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Outlet, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { onFetchOneCharacter } from '../../redux/actions';
+import { onFetchOneCharacter } from '../../../redux/actions';
 import PersonajesUI from '../CharacterCard/PersonajesUI';
 
 const DetallePersonaje = () => {
@@ -29,6 +29,7 @@ const DetallePersonaje = () => {
 	
 	return (
 		<div>
+			<Outlet />
 			{isLoading 
 				? 
 				<Loading />

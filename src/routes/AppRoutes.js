@@ -11,8 +11,8 @@ import Nav from '../components/Nav/Nav';
 import Home from '../views/Home/Home';
 import About from '../views/About/About';
 import Contact from '../views/Contact/Contact';
-import DetallePersonaje from '../components/DetallePersonaje/DetallePersonaje';
-import PersonajesContainer from "../components/CharacterList/PersonajesContainer";
+import DetallePersonaje from '../components/characterComponents/CharacterDetail/DetallePersonaje';
+import PersonajesContainer from "../components/characterComponents/CharacterList/PersonajesContainer";
 import NotFound from '../views/notFound/NotFound';
 import LoginPage from "../views/Login/LoginPage";
 import RegisterPage from "../views/Login/RegisterPage";
@@ -21,7 +21,7 @@ import DashboardPage from "../views/Dashboard/DashboardPage";
 //RUTAS
 
 import PrivateRoute from "./PrivateRoute";
-import MasDetallePersonaje from "../components/DetallePersonaje/MasDetallePersonaje";
+import MasDetallePersonaje from "../components/characterComponents/CharacterDetail/MasDetallePersonaje";
 
 
 function AppRoutes() {
