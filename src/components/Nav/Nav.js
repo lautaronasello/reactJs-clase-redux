@@ -1,6 +1,8 @@
 import './Nav.css';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../../auth/useAuth';
+import { useDispatch } from 'react-redux';
+import * as actions from '../../redux/actions';
 
 //menu lateral con NavLink de reat router dom v6
 let activeStyle = {
@@ -12,13 +14,18 @@ let activeStyle = {
 
 const Nav = () => {
 	const auth = useAuth();
+	const dispatch = useDispatch();
+
+	const irPersonajes = () => {
+		dispatch(actions.onFetchCharacters());
+	  }
 
 	return (
 		<nav className="Navigation">
 			<NavLink to="/" style={({isActive }) => isActive ? activeStyle : undefined } className="nav-link">
 				Home
 			</NavLink>
-			<NavLink to="/personajes" className="nav-link" >
+			<NavLink to="/personajes" className="nav-link" onClick={() => irPersonajes()}  >
 				Personajes
 			</NavLink>
 			<NavLink to="/about" className="nav-link" >

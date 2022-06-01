@@ -1,5 +1,5 @@
 //formulario de contacto: nombre, apellido, mail y mensaje 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CustomFormulario from '../commons/CustomFormulario';
 
 const initialValues = [

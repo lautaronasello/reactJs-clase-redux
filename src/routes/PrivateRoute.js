@@ -1,4 +1,4 @@
-import { Navigate, Outlet, useLocation, useNavigate} from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import useAuth from '../auth/useAuth';
 
 export default function PrivateRoute() {

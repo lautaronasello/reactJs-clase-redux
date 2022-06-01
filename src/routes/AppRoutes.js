@@ -12,7 +12,7 @@ import Home from '../views/Home/Home';
 import About from '../views/About/About';
 import Contact from '../views/Contact/Contact';
 import DetallePersonaje from '../components/DetallePersonaje/DetallePersonaje';
-import ListaPersonajes from '../components/CharacterList/ListaPersonajes';
+import PersonajesContainer from "../components/CharacterList/PersonajesContainer";
 import NotFound from '../views/notFound/NotFound';
 import LoginPage from "../views/Login/LoginPage";
 import RegisterPage from "../views/Login/RegisterPage";
@@ -32,7 +32,7 @@ function AppRoutes() {
 				<Nav />
 				<Routes> {/* <Switch> */}
 					<Route index element={<Home />} />
-					<Route path='/personajes' element={<ListaPersonajes />} />	
+					<Route path='/personajes' element={<PersonajesContainer />} />	
 					<Route path='/personajes/:userID' element={<DetallePersonaje />}>
 						<Route path='mas-detalles' element={<MasDetallePersonaje />} />	
 					</Route>	

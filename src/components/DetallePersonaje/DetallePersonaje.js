@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import './DetallePersonaje.css';
-import CardPersonajesMapeados from '../CharacterCard/CardPersonajesMapeados';
 import Loading from '../commons/Loading';
 import { Button } from '@mui/material';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { onFetchOneCharacter } from '../../redux/actions';
+import PersonajesUI from '../CharacterCard/PersonajesUI';
 
 const DetallePersonaje = () => {
-	const [character, setCharacter] = useState([]);
+	const dispatch = useDispatch();
+	const character = useSelector(state => state.charactersData.character);
 	const [isLoading, setIsLoading] = useState(true);
 
+	console.log(useParams());
 	const { userID } = useParams();
 
 
 	useEffect(() => {
-		fetch(`https://breakingbadapi.com/api/characters/${userID}`)
-			.then((res) =>{
-				if(res){
-					return res.json();
-				}
-			})
-			.then((data) => {
-					console.log(data)
-					setCharacter(data);
-					setIsLoading(false);
-				
-			});
-	}, [userID]);
+		dispatch(onFetchOneCharacter(userID));
+	}, [dispatch, userID]);
 
+	useEffect(() => {
+		if (character && character.length > 0) {
+			console.log(character)
+			setIsLoading(false);
+		}
+	}, [character]);
+	
 	return (
 		<div>
 			{isLoading 
@@ -38,7 +38,7 @@ const DetallePersonaje = () => {
 					{character.map((char) => {
 						return (
 							<div key={char.char_id}>
-								<CardPersonajesMapeados data={char} />
+								<PersonajesUI data={char} />
 								<Button component={Link} to='mas-detalles' variant='contained'>Más detalles anidados</Button>
 							</div>
 						);
