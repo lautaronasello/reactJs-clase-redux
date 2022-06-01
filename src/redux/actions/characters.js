@@ -38,16 +38,21 @@ export const onFetchCharacters = () => {
 };
 
 export const onFetchOneCharacter = (userID) => {
+    if(userID){
+        return dispatch => {
+            fetch(`https://breakingbadapi.com/api/characters/${userID}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    dispatch(fetchOneCharacterSuccess(data));
+                })
+                .catch(error => {
+                    dispatch(fetchCharactersError(error));
+                });
+        }
+    }
     return dispatch => {
-        fetch(`https://breakingbadapi.com/api/characters/${userID}`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                dispatch(fetchOneCharacterSuccess(data));
-            })
-            .catch(error => {
-                dispatch(fetchCharactersError(error));
-            });
+        dispatch(fetchOneCharacterSuccess([]));
     }
 }
 

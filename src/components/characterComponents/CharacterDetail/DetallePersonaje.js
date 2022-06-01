@@ -18,6 +18,9 @@ const DetallePersonaje = () => {
 
 	useEffect(() => {
 		dispatch(onFetchOneCharacter(userID));
+		return () => {
+			onFetchOneCharacter('');
+		}
 	}, [dispatch, userID]);
 
 	useEffect(() => {
